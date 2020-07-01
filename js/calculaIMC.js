@@ -12,13 +12,20 @@ pacientes.forEach(paciente => {
     let alturaIsValid = altura > 0 && altura < 3
 
     if(pesoIsValid && alturaIsValid){
-        let imc = peso / (altura * altura)
-        tdImc.textContent = imc.toFixed(2)    
+        tdImc.textContent = calculaImc(peso, altura)
     } else{
         tdImc.textContent = 'Altura ou Peso inválido'
         paciente.classList.add('paciente-invalido')
     }
 })
+
+function calculaImc(peso, altura){
+    let imc = peso / (altura * altura)
+
+    return imc.toFixed(2)
+}
+
+
 
 
 
