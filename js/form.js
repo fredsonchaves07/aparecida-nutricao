@@ -6,6 +6,11 @@ botaoAdicionar.addEventListener('click', function(event){
     let paciente = obterInformacoesForm(form)
     let pacienteTr = montaTr(paciente)
 
+    if(!validaPaciente(paciente)){
+        alert('Valores inválidos de peso e altura')
+        return
+    }
+
     let tabela = document.querySelector('#tabela-pacientes')
 
     tabela.appendChild(pacienteTr)
@@ -53,4 +58,8 @@ function montaTr(paciente){
     pacienteTr.appendChild(imcTd)
 
     return pacienteTr
+}
+
+function validaPaciente(paciente){
+    return validaPeso(paciente.peso) && validaAltura(paciente.altura)
 }
